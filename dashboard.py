@@ -7,7 +7,7 @@ import seaborn as sns
 day_df = pd.read_csv("day.csv")
 
 
-    def main():
+def main():
     st.title("Dashboard Analisis Pengguna Sepeda")
 
 
