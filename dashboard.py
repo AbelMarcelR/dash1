@@ -1,15 +1,12 @@
 import streamlit as st
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
-
 
 day_df = pd.read_csv("day.csv")
 
-
 def main():
     st.title("Dashboard Analisis Pengguna Sepeda")
-
 
     option = st.sidebar.selectbox(
         "Pilih Analisis:",
@@ -27,8 +24,6 @@ def main():
     elif option == "Jumlah total sepeda yang disewakan berdasarkan Bulan dan Tahun":
         plot_monthly_counts()
 
-
-
 def plot_weather_condition():
     plt.figure(figsize=(10, 6))
     sns.barplot(
@@ -41,11 +36,8 @@ def plot_weather_condition():
     plt.ylabel('Jumlah Pengguna Sepeda')
     st.pyplot(plt.gcf())  # Use the current figure
 
-
-
 def plot_working_holiday_weekday():
     fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15, 10))
-
 
     sns.barplot(
         x='workingday',
@@ -57,14 +49,14 @@ def plot_working_holiday_weekday():
     axes[0].set_xlabel('Hari Kerja')
     axes[0].set_ylabel('Jumlah Pengguna Sepeda')
 
-
     sns.barplot(
         x='holiday',
         y='cnt',
         data=day_df,
         ax=axes[1]
     )
-    axes[1].set_title('Jumlah Pengguna Sepeda berdasarkan Hari Libur')
+   
+axes[1].set_title('Jumlah Pengguna Sepeda berdasarkan Hari Libur')
     axes[1].set_xlabel('Hari Libur')
     axes[1].set_ylabel('Jumlah Pengguna Sepeda')
 
@@ -80,7 +72,6 @@ def plot_working_holiday_weekday():
 
     plt.tight_layout()
     st.pyplot(plt.gcf()) 
-
 
 def plot_monthly_counts():
     day_df['mnth'] = pd.Categorical(day_df['mnth'], categories=
@@ -106,8 +97,6 @@ def plot_monthly_counts():
     plt.legend(title="Tahun", loc="upper right")
     plt.tight_layout()
     st.pyplot(plt.gcf())  
-
-
 
 if __name__ == "__main__":
     main()
