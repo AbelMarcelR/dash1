@@ -56,7 +56,7 @@ def plot_working_holiday_weekday():
         ax=axes[1]
     )
    
-axes[1].set_title('Jumlah Pengguna Sepeda berdasarkan Hari Libur')
+    axes[1].set_title('Jumlah Pengguna Sepeda berdasarkan Hari Libur')
     axes[1].set_xlabel('Hari Libur')
     axes[1].set_ylabel('Jumlah Pengguna Sepeda')
 
