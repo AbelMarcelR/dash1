@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+
 import seaborn as sns
 
 day_df = pd.read_csv("day.csv")
